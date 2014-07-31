@@ -268,22 +268,25 @@ td:not(.linenos) .linenodiv { padding: 0 !important; }
   h2, h3 { page-break-after: avoid; }
 }
 </style><title>README</title></head><body><h1 id="junos-operational-script-ospf-toolslax"><a name="user-content-junos-operational-script-ospf-toolslax" href="#junos-operational-script-ospf-toolslax" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Junos Operational Script ospf-tool.slax</h1>
-<h3 id="description"><a name="user-content-description" href="#description" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>DESCRIPTION</h3>
+<h3 id="description"><a name="user-content-description" href="#description" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Description</h3>
 <p>This is a Juniper SLAX op script to provide a quick breakdown of OSPF and OSPFv3 neighbors. Three CLI arguments can be passed for additional functionality. The first two include being able to specify a neighbor ID or interface to retrieve detailed troubleshooting information about that interface (or interface where the neighbor ID is found). The third CLI argument is to pass a router ID, and retrieve all the OSPF routes received from that router ID, and indicate which ones are active in the routing table.  </p>
 <p>These functions are accomplished by combining and shortening the output of the <code>show ospf neighbor</code>, <code>show ospf interface extensive</code>, <code>show ospf route extensive</code>, <code>show ospf overview</code>, and <code>show route</code> commands (along with the appropriate OSPFv3 commands as well) into one easy to read format. </p>
 <p>For detailed information for storing and enabling an op script on your Junos device, please visit <a href="http://www.juniper.net/techpubs/en_US/junos13.2/topics/task/configuration/junos-script-automation-script-storing-enabling.html">this page</a>.</p>
 <p><a href="http://www.juniper.net/techpubs/en_US/junos14.1/topics/concept/junos-script-automation-slax-overview.html">General SLAX Overview</a><br />
 <a href="http://www.juniper.net/techpubs/en_US/junos13.2/information-products/pathway-pages/config-guide-automation/configuration-and-operations-automation.html#overview">Junos Automation Documentation</a>  </p>
-<h3 id="version-history"><a name="user-content-version-history" href="#version-history" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>VERSION HISTORY:</h3>
+<h3 id="requirements"><a name="user-content-requirements" href="#requirements" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Requirements</h3>
+<p>Junos Version &gt;= 12.2<br />
+This script does use <code>mvar</code>s and other SLAX features first introduced in 12.2.</p>
+<h3 id="version-history"><a name="user-content-version-history" href="#version-history" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Version History:</h3>
 <ul>
 <li>v1.0  <ul>
 <li>Initial Release  </li>
 </ul>
 </li>
 </ul>
-<h3 id="author"><a name="user-content-author" href="#author" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>AUTHOR:</h3>
+<h3 id="author"><a name="user-content-author" href="#author" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Author:</h3>
 <p>Nathan Printz  </p>
-<h2 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>EXAMPLES:</h2>
+<h3 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Examples:</h3>
 <p>Explanation of CLI arguments available through question mark:  </p>
 <pre><code>&gt; op ospf-tool ?
 Possible completions:
