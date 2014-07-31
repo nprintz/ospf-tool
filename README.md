@@ -1,7 +1,7 @@
 Junos Operational Script ospf-tool.slax
 =================================
 
-### DESCRIPTION  
+### Description  
 This is a Juniper SLAX op script to provide a quick breakdown of OSPF and OSPFv3 neighbors. Three CLI arguments can be passed for additional functionality. The first two include being able to specify a neighbor ID or interface to retrieve detailed troubleshooting information about that interface (or interface where the neighbor ID is found). The third CLI argument is to pass a router ID, and retrieve all the OSPF routes received from that router ID, and indicate which ones are active in the routing table.  
 
 These functions are accomplished by combining and shortening the output of the `show ospf neighbor`, `show ospf interface extensive`, `show ospf route extensive`, `show ospf overview`, and `show route` commands (along with the appropriate OSPFv3 commands as well) into one easy to read format. 
@@ -15,14 +15,14 @@ For detailed information for storing and enabling an op script on your Junos dev
 Junos Version >= 12.2
 This script does use `mvar`s and other SLAX features first introduced in 12.2.
 
-### VERSION HISTORY:  
+### Version History:  
 * v1.0  
 	- Initial Release  
 
-### AUTHOR:  
+### Author:  
 Nathan Printz  
 
-## EXAMPLES:  
+### Examples:  
 
 Explanation of CLI arguments available through question mark:  
 	
