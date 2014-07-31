@@ -11,6 +11,10 @@ For detailed information for storing and enabling an op script on your Junos dev
 [General SLAX Overview](http://www.juniper.net/techpubs/en_US/junos14.1/topics/concept/junos-script-automation-slax-overview.html)  
 [Junos Automation Documentation](http://www.juniper.net/techpubs/en_US/junos13.2/information-products/pathway-pages/config-guide-automation/configuration-and-operations-automation.html#overview)  
 
+### Requirements
+Junos Version >= 12.2
+This script does use `mvar`s and other SLAX features first introduced in 12.2.
+
 ### VERSION HISTORY:  
 * v1.0  
 	- Initial Release  
@@ -74,7 +78,7 @@ No Passed argument gives a summary of the OSPF topologies:
 	ABRs: 0   ASBRs: 0   Neighbors Up: 1
 	 
 	 Interface      State        ID               rDNS hostname         Neighbor Address   
-	ge-0/0/12.0    Full         10.0.0.246       hq-core-vc.jma-it.com fe80::3e8a:b0ff:fe9b:e60f
+	ge-0/0/12.0    Full         10.0.0.246       asdf.qwer.com 		   fe80::3e8a:b0ff:fe9b:e60f
 
 Retrieving routes from a single neighbor ID:  
 

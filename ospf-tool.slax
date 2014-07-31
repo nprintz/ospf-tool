@@ -1,4 +1,4 @@
-version 1.0;
+version 1.1;
 ns junos = "http://xml.juniper.net/junos/*/junos";
 ns xnm = "http://xml.juniper.net/xnm/1.1/xnm";
 ns jcs = "http://xml.juniper.net/junos/commit-scripts/1.0";
@@ -9,11 +9,20 @@ import "../import/junos.xsl";
 
 CURRENT VERSION 1.0
 
-DESCRIPTION:
-This is a Juniper SLAX op script to provide a quick breakdown of OSPF and OSPFv3 neighbors.
+REQUIREMENTS: 
+Junos Version >= 12.2
+This script does use `mvar`s and other SLAX features first introduced in 12.2.
 
-This is accomplished by combining and shortening the output of the `show ospf neighbor`, 
-`show ospf interface`, and `show lldp neighbors` 
+DESCRIPTION:
+This is a Juniper SLAX op script to provide a quick breakdown of OSPF and OSPFv3 neighbors. 
+Three CLI arguments can be passed for additional functionality. The first two include being
+ able to specify a neighbor ID or interface to retrieve detailed troubleshooting information 
+ about that interface (or interface where the neighbor ID is found). The third CLI argument 
+ is to pass a router ID, and retrieve all the OSPF routes received from that router ID, and 
+ indicate which ones are active in the routing table.  
+
+These functions are accomplished by combining and shortening the output of the `show ospf neighbor`, 
+`show ospf interface extensive`, `show ospf route extensive`, `show ospf overview`, and `show route` 
 commands (along with the appropriate OSPFv3 commands as well) into one easy to read format. 
 
 VERSION HISTORY:
@@ -67,7 +76,7 @@ EXAMPLES:
 		ABRs: 0   ASBRs: 0   Neighbors Up: 1
 		 
 		 Interface      State        ID               rDNS hostname         Neighbor Address   
-		ge-0/0/12.0    Full         10.0.0.246       hq-core-vc.jma-it.com fe80::3e8a:b0ff:fe9b:e60f
+		ge-0/0/12.0    Full         10.0.0.246       asdf.qwer.com 		   fe80::3e8a:b0ff:fe9b:e60f
 
 	Retrieving routes from a single neighbor ID:
 
@@ -175,7 +184,7 @@ var $arguments = {
 	}
 	<argument> {
 		<name> "route";
-		<description> "Specify a Router ID to be shown all routes advertised by that router.";
+		<description> "Specify a Router ID to be shown all OSPF routes advertised by that router.";
 	}
 }
 
@@ -263,7 +272,7 @@ match / {
 
 		} 
 		/* they passed an interface, and want deep info on that interface */
-		else if ( $int ){
+		else if ( $int ) {
 			/**** run through the OSPFv2 information ****/
 			mvar $neigh = "";
 			mvar $neigh3 = "";
